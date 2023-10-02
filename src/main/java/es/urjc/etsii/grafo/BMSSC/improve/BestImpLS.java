@@ -6,8 +6,8 @@ import es.urjc.etsii.grafo.BMSSC.model.sol.BMSSCSolution;
 import es.urjc.etsii.grafo.BMSSC.model.sol.SwapMove;
 import es.urjc.etsii.grafo.annotations.AutoconfigConstructor;
 import es.urjc.etsii.grafo.improve.Improver;
-import es.urjc.etsii.grafo.solution.metrics.Metrics;
-import es.urjc.etsii.grafo.solution.metrics.MetricsManager;
+import es.urjc.etsii.grafo.metrics.BestObjective;
+import es.urjc.etsii.grafo.metrics.Metrics;
 import es.urjc.etsii.grafo.solver.Mork;
 import es.urjc.etsii.grafo.util.TimeControl;
 
@@ -38,7 +38,7 @@ public class BestImpLS extends Improver<BMSSCSolution, BMSSCInstance> {
 
         if (bestMove != null && isNegative(bestMove.getValue())){
             bestMove.execute(s);
-            MetricsManager.addDatapoint(Metrics.BEST_OBJECTIVE_FUNCTION, s.getScore());
+            Metrics.add(BestObjective.class, s.getScore());
         }
         return bestMove != null;
     }

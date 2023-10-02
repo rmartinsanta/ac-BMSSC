@@ -9,8 +9,8 @@ import es.urjc.etsii.grafo.annotations.IntegerParam;
 import es.urjc.etsii.grafo.annotations.ProvidedParam;
 import es.urjc.etsii.grafo.create.Constructive;
 import es.urjc.etsii.grafo.improve.Improver;
-import es.urjc.etsii.grafo.solution.metrics.Metrics;
-import es.urjc.etsii.grafo.solution.metrics.MetricsManager;
+import es.urjc.etsii.grafo.metrics.BestObjective;
+import es.urjc.etsii.grafo.metrics.Metrics;
 import es.urjc.etsii.grafo.util.TimeControl;
 
 import static es.urjc.etsii.grafo.util.DoubleComparator.isLess;
@@ -42,12 +42,12 @@ public class MultistartOnlyBestAppliesLS extends Algorithm<BMSSCSolution, BMSSCI
     @Override
     public BMSSCSolution algorithm(BMSSCInstance ins) {
         var s = construct(ins);
-        MetricsManager.addDatapoint(Metrics.BEST_OBJECTIVE_FUNCTION, s.getScore());
+        Metrics.add(BestObjective.class, s.getScore());
         for (int i = 0; i < iterations && !TimeControl.isTimeUp(); i++) {
             BMSSCSolution temp = construct(ins);
             if (isLess(temp.getScore(), s.getScore())){
                 s = temp;
-                MetricsManager.addDatapoint(Metrics.BEST_OBJECTIVE_FUNCTION, s.getScore());
+                Metrics.add(BestObjective.class, s.getScore());
             }
         }
         s = improve(s);

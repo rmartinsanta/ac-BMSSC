@@ -48,6 +48,15 @@ First line contains 3 numbers (nPoints,nDimensions,nClusters), which corresponds
 with the number of points in the instance, the point dimensionality and the number of clusters in which to classify the points.
 The next N lines, contains the point data for each dimension, separated by commas.
 
+## Properties used for instance classification and selection
+3 instances have been removed because they are too complex to be solved in less than 1 minute by all approaches: 
+
+- n: number of points
+- k: number of clusters
+- d: number of dimensions
+- Number of clusters with size != n/k, only happens when N is not divisible by k
+- (min, max, avg, std) distance between points
+
 ## Cite
 Consider citing our original BMSSC paper if used in your own work, or the Autoconfig proposal
 

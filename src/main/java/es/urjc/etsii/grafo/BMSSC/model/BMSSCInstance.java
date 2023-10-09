@@ -37,7 +37,7 @@ public class BMSSCInstance extends Instance {
     /**
      * Symmetric matrix, stores the cost between any two points
      */
-    private double[][] distances;
+    protected double[][] distances;
 
     /**
      * Minimum points per cluster (minPointsPerCluster = n / k)
@@ -68,10 +68,6 @@ public class BMSSCInstance extends Instance {
         // Precalculate distances between each pair of points
         calculateDistances();
         checkDataIsValid();
-
-        this.setProperty("N", n);
-        this.setProperty("D", d);
-        this.setProperty("K", k);
     }
 
     private void checkDataIsValid() {

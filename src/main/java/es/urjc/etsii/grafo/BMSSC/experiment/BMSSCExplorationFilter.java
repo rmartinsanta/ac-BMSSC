@@ -22,13 +22,6 @@ public class BMSSCExplorationFilter extends ExplorationFilter {
 
         // VND should not use a NullImprover, as it is almost the same as a SequentialImprover with two improvers.
         this.blockedRelationships.add(new ClassPair(VND.class, Improver.NullImprover.class));
-
-        // LS1, LS2, y LS3
-
-        // VND
-        // NUll, LS1, LS2
-        // LS1, NULL, LS2
-        // LS1, LS2, NULL
     }
 
     @Override

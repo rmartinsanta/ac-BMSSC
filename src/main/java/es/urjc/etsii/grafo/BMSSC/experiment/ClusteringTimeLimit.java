@@ -25,6 +25,7 @@ public class ClusteringTimeLimit extends TimeLimitCalculator<BMSSCSolution, BMSS
             throw new IllegalArgumentException("invalid reference value for instance: " + instance.getId());
         }
         var nanos =  refResult.getTimeInNanos();
-        return TimeUtil.convert(nanos, TimeUnit.NANOSECONDS, TimeUnit.MILLISECONDS);
+        // Use as timelimit twice the time of the sota algorithm, and analyze how it evolves
+        return TimeUtil.convert(nanos, TimeUnit.NANOSECONDS, TimeUnit.MILLISECONDS) * 2;
     }
 }

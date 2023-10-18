@@ -15,12 +15,11 @@ public class ReimplementationResults extends ReferenceResultProvider {
 
     public ReimplementationResults() throws IOException {
         this.results = new HashMap<>();
-        var lines = Files.readAllLines(Path.of("reimplementation.tsv"));
+        var lines = Files.readAllLines(Path.of("sotaTimes.tsv"));
         for(var l: lines){
             var parts = l.split("\t");
             var result = new ReferenceResult();
-            result.setScore(parts[1]);
-            result.setTimeInSeconds(parts[2]);
+            result.setTimeInSeconds(parts[1]);
             results.put(parts[0], result);
         }
     }

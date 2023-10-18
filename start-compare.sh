@@ -9,4 +9,5 @@ java -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9010 -Dc
 --serializers.solution-json.frequency=all \
 --solver.experiments=FinalExperiment \
 --solver.parallelExecutor=true \
---solver.nWorkers=8
+--solver.nWorkers=8 \
+--solver.metrics=true

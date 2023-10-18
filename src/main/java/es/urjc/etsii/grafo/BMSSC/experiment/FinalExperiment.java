@@ -1,5 +1,10 @@
 package es.urjc.etsii.grafo.BMSSC.experiment;
 
+import es.urjc.etsii.grafo.BMSSC.alg.MultistartOnlyBestAppliesLS;
+import es.urjc.etsii.grafo.BMSSC.create.BMSSCGRASPConstructor;
+import es.urjc.etsii.grafo.BMSSC.improve.FirstImpLS;
+import es.urjc.etsii.grafo.BMSSC.improve.ShakeImprover;
+import es.urjc.etsii.grafo.BMSSC.improve.StrategicOscillation;
 import es.urjc.etsii.grafo.BMSSC.model.BMSSCInstance;
 import es.urjc.etsii.grafo.BMSSC.model.sol.BMSSCSolution;
 import es.urjc.etsii.grafo.algorithms.Algorithm;
@@ -24,10 +29,16 @@ public class FinalExperiment extends AbstractExperiment<BMSSCSolution, BMSSCInst
         var algorithms = new ArrayList<Algorithm<BMSSCSolution, BMSSCInstance>>();
 
         String[] iraceOutput = """
-                                
+                ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.68 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=ShakeImprover ROOT_VNS.improver_ShakeImprover.improver=FirstImpLS ROOT_VNS.improver_ShakeImprover.shake=StrategicOscillation ROOT_VNS.improver_ShakeImprover.shake_StrategicOscillation.increment=0.03 ROOT_VNS.maxK=3 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.72
+                ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.72 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=ShakeImprover ROOT_VNS.improver_ShakeImprover.improver=FirstImpLS ROOT_VNS.improver_ShakeImprover.shake=StrategicOscillation ROOT_VNS.improver_ShakeImprover.shake_StrategicOscillation.increment=0.06 ROOT_VNS.maxK=3 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.82
+                ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.89 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=ShakeImprover ROOT_VNS.improver_ShakeImprover.improver=FirstImpLS ROOT_VNS.improver_ShakeImprover.shake=StrategicOscillation ROOT_VNS.improver_ShakeImprover.shake_StrategicOscillation.increment=0.15 ROOT_VNS.maxK=6 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.58
+                ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.62 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=ShakeImprover ROOT_VNS.improver_ShakeImprover.improver=FirstImpLS ROOT_VNS.improver_ShakeImprover.shake=StrategicOscillation ROOT_VNS.improver_ShakeImprover.shake_StrategicOscillation.increment=0.01 ROOT_VNS.maxK=4 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.6
+                ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.67 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=ShakeImprover ROOT_VNS.improver_ShakeImprover.improver=FirstImpLS ROOT_VNS.improver_ShakeImprover.shake=StrategicOscillation ROOT_VNS.improver_ShakeImprover.shake_StrategicOscillation.increment=0.03 ROOT_VNS.maxK=4 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.78
+                ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.68 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=FirstImpLS ROOT_VNS.maxK=2 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.75
+                ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.67 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=ShakeImprover ROOT_VNS.improver_ShakeImprover.improver=FirstImpLS ROOT_VNS.improver_ShakeImprover.shake=StrategicOscillation ROOT_VNS.improver_ShakeImprover.shake_StrategicOscillation.increment=0.73 ROOT_VNS.maxK=1 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.55
+                ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.79 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=ShakeImprover ROOT_VNS.improver_ShakeImprover.improver=FirstImpLS ROOT_VNS.improver_ShakeImprover.shake=StrategicOscillation ROOT_VNS.improver_ShakeImprover.shake_StrategicOscillation.increment=0.1 ROOT_VNS.maxK=2 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.6                
                 """.split("\n");
 
-        algorithms.add(sotaAlgorithm());
         for (int i = 0; i < iraceOutput.length; i++) {
             if (!iraceOutput[i].isBlank()) {
                 var algorithm = builder.buildFromStringParams(iraceOutput[i].trim());
@@ -37,12 +48,15 @@ public class FinalExperiment extends AbstractExperiment<BMSSCSolution, BMSSCInst
                 algorithms.add(multistart);
             }
         }
+        algorithms.add(sotaAlgorithm());
 
         return algorithms;
     }
 
     public Algorithm<BMSSCSolution, BMSSCInstance> sotaAlgorithm(){
-        throw new UnsupportedOperationException();
+        var algorithm = new MultistartOnlyBestAppliesLS("Reimplementation", 100, new BMSSCGRASPConstructor(0.75), new ShakeImprover(new FirstImpLS(), new StrategicOscillation(0.75)));
+        var multistart = new MultiStartAlgorithm<>("sota", algorithm, 1_000_000, 1_000_000, 1_000_000);
+        return multistart;
     }
 
 }

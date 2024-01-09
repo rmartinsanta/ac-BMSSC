@@ -2,7 +2,7 @@
   <configuration default="false" name="ScoreParser" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="es.urjc.etsii.grafo.BMSSC.ScoreParser" />
     <module name="BMSSC" />
-    <option name="PROGRAM_PARAMETERS" value="tmp/solutions-filtered _" />
+    <option name="PROGRAM_PARAMETERS" value="solutions _" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="es.urjc.etsii.grafo.BMSSC.*" />

@@ -2,7 +2,7 @@
   <configuration default="false" name="RPDParser" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="es.urjc.etsii.grafo.BMSSC.RPDParser" />
     <module name="BMSSC" />
-    <option name="PROGRAM_PARAMETERS" value="tmp/solutions-filtered _ minKnownVal.tsv" />
+    <option name="PROGRAM_PARAMETERS" value="solutions _ minKnownVal.tsv" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="es.urjc.etsii.grafo.BMSSC.*" />

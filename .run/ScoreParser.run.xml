@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ScoreParser" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="es.urjc.etsii.grafo.BMSSC.ScoreParser" />
+    <module name="BMSSC" />
+    <option name="PROGRAM_PARAMETERS" value="tmp/solutions-filtered _" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="es.urjc.etsii.grafo.BMSSC.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

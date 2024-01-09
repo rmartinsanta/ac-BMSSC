@@ -2,6 +2,6 @@
 log.txt
 errors
 target
-BMSSC.iml
+*.iml
 .DS_Store
 .benchmark

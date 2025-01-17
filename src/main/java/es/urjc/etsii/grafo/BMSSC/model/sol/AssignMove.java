@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Assigns a point to a cluster
  */
-public class AssignMove extends Move<BMSSCSolution, BMSSCInstance> {
+public class AssignMove extends BMSSCMove {
 
     private final int point;
     private final int cluster;
@@ -47,7 +47,7 @@ public class AssignMove extends Move<BMSSCSolution, BMSSCInstance> {
     }
 
     @Override
-    protected boolean _execute(BMSSCSolution solution) {
+    protected BMSSCSolution _execute(BMSSCSolution solution) {
         var ins = solution.getInstance();
         assert !solution.isFullCluster(cluster): "Cluster is full, cannot assign point";
         assert !solution.clusters[cluster].contains(point) : "Point already in cluster";
@@ -69,7 +69,7 @@ public class AssignMove extends Move<BMSSCSolution, BMSSCInstance> {
             }
         }
         assert solution.cachesValid();
-        return true;
+        return solution;
     }
 
     @Override

@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Swap this point with another one in a different cluster. Swaps between points in the same cluster are not allowed.
  */
-public class SwapMove extends Move<BMSSCSolution, BMSSCInstance> {
+public class SwapMove extends BMSSCMove {
 
     private final int pointA;
     private final int pointB;
@@ -42,7 +42,7 @@ public class SwapMove extends Move<BMSSCSolution, BMSSCInstance> {
     }
 
     @Override
-    protected boolean _execute(BMSSCSolution solution) {
+    protected BMSSCSolution _execute(BMSSCSolution solution) {
         var ins = solution.getInstance();
 
         // removeCost[n] is negative; by removing a point from the cluster, the possible improvement from removing itself decreases
@@ -84,7 +84,7 @@ public class SwapMove extends Move<BMSSCSolution, BMSSCInstance> {
         // Verify caches and return true as a swap move always modifies solution
         // Swap in same cluster is not allowed
         assert solution.cachesValid();
-        return true;
+        return solution;
     }
 
     @Override

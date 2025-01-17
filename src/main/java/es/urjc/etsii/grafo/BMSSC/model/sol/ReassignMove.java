@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Removes a point from a cluster and adds it to another cluster
  */
-public class ReassignMove extends Move<BMSSCSolution, BMSSCInstance> {
+public class ReassignMove extends BMSSCMove {
 
     private final int pointId;
     private final int targetCluster;
@@ -55,7 +55,7 @@ public class ReassignMove extends Move<BMSSCSolution, BMSSCInstance> {
     }
 
     @Override
-    protected boolean _execute(BMSSCSolution solution) {
+    protected BMSSCSolution _execute(BMSSCSolution solution) {
         var instance = solution.getInstance();
         assert !solution.getCluster(targetCluster).contains(pointId)
                 : "Cluster %s already contains point %s".formatted(targetCluster, pointId);
@@ -98,7 +98,7 @@ public class ReassignMove extends Move<BMSSCSolution, BMSSCInstance> {
         // Verify all caches only if running in validation mode
         assert solution.cachesValid() : "Cache is in invalid state";
 
-        return true; // Always modifies solution, it is not valid to reassign a move to the same cluster. Verified by assert in constructor
+        return solution; // Always modifies solution, it is not valid to reassign a move to the same cluster. Verified by assert in constructor
     }
 
     @Override

@@ -1,5 +1,6 @@
 package es.urjc.etsii.grafo.BMSSC.experiment;
 
+import es.urjc.etsii.grafo.BMSSC.Main;
 import es.urjc.etsii.grafo.BMSSC.alg.MultistartOnlyBestAppliesLS;
 import es.urjc.etsii.grafo.BMSSC.create.BMSSCGRASPConstructor;
 import es.urjc.etsii.grafo.BMSSC.improve.FirstImpLS;
@@ -49,7 +50,7 @@ public class FinalExperiment extends AbstractExperiment<BMSSCSolution, BMSSCInst
 //            }
 //        }
         var auto = builder.buildFromStringParams("ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.68 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=FirstImpLS ROOT_VNS.maxK=2 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.75");
-        algorithms.add(new MultiStartAlgorithm<>("ac5", auto, 1_000_000, 1_000_000, 1_000_000));
+        algorithms.add(new MultiStartAlgorithm<>("ac5", Main.OBJ, auto, 1_000_000, 1_000_000, 1_000_000));
         algorithms.add(sotaAlgorithm());
 
         return algorithms;
@@ -57,7 +58,7 @@ public class FinalExperiment extends AbstractExperiment<BMSSCSolution, BMSSCInst
 
     public Algorithm<BMSSCSolution, BMSSCInstance> sotaAlgorithm(){
         var algorithm = new MultistartOnlyBestAppliesLS("Reimplementation", 100, new BMSSCGRASPConstructor(0.75), new ShakeImprover(new FirstImpLS(), new StrategicOscillation(0.75)));
-        var multistart = new MultiStartAlgorithm<>("sota", algorithm, 1_000_000, 1_000_000, 1_000_000);
+        var multistart = new MultiStartAlgorithm<>("sota", Main.OBJ, algorithm, 1_000_000, 1_000_000, 1_000_000);
         return multistart;
     }
 

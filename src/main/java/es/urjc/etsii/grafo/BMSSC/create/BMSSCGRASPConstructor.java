@@ -6,9 +6,7 @@ import es.urjc.etsii.grafo.BMSSC.model.sol.BMSSCSolution;
 import es.urjc.etsii.grafo.annotations.AutoconfigConstructor;
 import es.urjc.etsii.grafo.annotations.RealParam;
 import es.urjc.etsii.grafo.create.Constructive;
-import es.urjc.etsii.grafo.metrics.BestObjective;
 import es.urjc.etsii.grafo.metrics.Metrics;
-import es.urjc.etsii.grafo.util.ValidationUtil;
 import es.urjc.etsii.grafo.util.random.RandomManager;
 
 import java.util.ArrayList;
@@ -102,8 +100,7 @@ public class BMSSCGRASPConstructor extends Constructive<BMSSCSolution, BMSSCInst
         }
 
         solution.notifyUpdate();
-        Metrics.add(BestObjective.class, solution.getScore());
-        ValidationUtil.assertValidScore(solution);
+        Metrics.addCurrentObjectives(solution);
         return solution;
     }
 

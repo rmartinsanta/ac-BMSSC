@@ -4,7 +4,6 @@ import es.urjc.etsii.grafo.BMSSC.model.BMSSCInstance;
 import es.urjc.etsii.grafo.BMSSC.model.sol.AssignMove;
 import es.urjc.etsii.grafo.BMSSC.model.sol.BMSSCSolution;
 import es.urjc.etsii.grafo.create.Constructive;
-import es.urjc.etsii.grafo.metrics.BestObjective;
 import es.urjc.etsii.grafo.metrics.Metrics;
 import es.urjc.etsii.grafo.util.random.RandomManager;
 
@@ -36,7 +35,7 @@ public class RandomConstructor extends Constructive<BMSSCSolution, BMSSCInstance
         }
 
         solution.notifyUpdate();
-        Metrics.add(BestObjective.class, solution.getScore());
+        Metrics.addCurrentObjectives(solution);
         solution.generateCachedScore();
         return solution;
     }

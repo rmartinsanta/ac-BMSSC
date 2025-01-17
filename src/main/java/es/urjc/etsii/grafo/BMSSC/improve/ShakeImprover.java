@@ -1,5 +1,6 @@
 package es.urjc.etsii.grafo.BMSSC.improve;
 
+import es.urjc.etsii.grafo.BMSSC.Main;
 import es.urjc.etsii.grafo.BMSSC.model.BMSSCInstance;
 import es.urjc.etsii.grafo.BMSSC.model.sol.BMSSCSolution;
 import es.urjc.etsii.grafo.algorithms.FMode;
@@ -16,7 +17,7 @@ public class ShakeImprover extends Improver<BMSSCSolution, BMSSCInstance> {
 
     @AutoconfigConstructor
     public ShakeImprover(Improver<BMSSCSolution, BMSSCInstance> improver, Shake<BMSSCSolution, BMSSCInstance> shake) {
-        super(FMode.MINIMIZE);
+        super(Main.OBJ);
         this.improver = improver;
         this.shake = shake;
     }

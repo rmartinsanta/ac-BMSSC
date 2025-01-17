@@ -9,7 +9,6 @@ import es.urjc.etsii.grafo.annotations.IntegerParam;
 import es.urjc.etsii.grafo.annotations.ProvidedParam;
 import es.urjc.etsii.grafo.create.Constructive;
 import es.urjc.etsii.grafo.improve.Improver;
-import es.urjc.etsii.grafo.metrics.BestObjective;
 import es.urjc.etsii.grafo.metrics.Metrics;
 import es.urjc.etsii.grafo.util.TimeControl;
 
@@ -41,17 +40,17 @@ public class MultistartOnlyBestAppliesLS extends Algorithm<BMSSCSolution, BMSSCI
      */
     @Override
     public BMSSCSolution algorithm(BMSSCInstance ins) {
-        var s = construct(ins);
-        Metrics.add(BestObjective.class, s.getScore());
+        var solution = construct(ins);
+        Metrics.addCurrentObjectives(solution);
         for (int i = 0; i < iterations && !TimeControl.isTimeUp(); i++) {
             BMSSCSolution temp = construct(ins);
-            if (isLess(temp.getScore(), s.getScore())){
-                s = temp;
-                Metrics.add(BestObjective.class, s.getScore());
+            if (isLess(temp.getScore(), solution.getScore())){
+                solution = temp;
+                Metrics.addCurrentObjectives(solution);
             }
         }
-        s = improve(s);
-        return s;
+        solution = improve(solution);
+        return solution;
     }
 
     BMSSCSolution construct(BMSSCInstance ins) {

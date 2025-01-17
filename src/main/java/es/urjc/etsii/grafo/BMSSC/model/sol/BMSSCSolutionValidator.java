@@ -1,8 +1,8 @@
 package es.urjc.etsii.grafo.BMSSC.model.sol;
 
 import es.urjc.etsii.grafo.BMSSC.model.BMSSCInstance;
-import es.urjc.etsii.grafo.services.SolutionValidator;
-import es.urjc.etsii.grafo.services.ValidationResult;
+import es.urjc.etsii.grafo.solution.SolutionValidator;
+import es.urjc.etsii.grafo.solution.ValidationResult;
 
 import java.util.Set;
 

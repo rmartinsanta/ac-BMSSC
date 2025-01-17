@@ -160,12 +160,6 @@ public class BMSSCSolution extends Solution<BMSSCSolution, BMSSCInstance> {
         return new BMSSCSolution(this);
     }
 
-    @Override
-    protected boolean _isBetterThan(BMSSCSolution other) {
-        return DoubleComparator.isLess(this.getScore(), other.getScore());
-    }
-
-    @Override
     public double getScore() {
         assert clusterScore.length == clusters.length;
 
@@ -179,7 +173,6 @@ public class BMSSCSolution extends Solution<BMSSCSolution, BMSSCInstance> {
         return temp;
     }
 
-    @Override
     public double recalculateScore() {
         // Calculate f.o score from scratch, without side effects
         return BMSSCSolution.score(getInstance(), clusters);

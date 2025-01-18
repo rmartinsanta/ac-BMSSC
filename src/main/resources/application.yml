@@ -71,7 +71,7 @@ solver:
   #### End autoconfig properties
 
   # Enable or disable metrics tracking. Force enabled if using autoconfig.
-  metrics: false
+  metrics: true
 
 # Enable irace integration? Check IRACE Wiki section before enabling
 irace:

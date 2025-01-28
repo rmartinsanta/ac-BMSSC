@@ -43,7 +43,7 @@ public class BestImpLS extends Improver<BMSSCSolution, BMSSCInstance> {
     }
 
     @Override
-    protected BMSSCSolution _improve(BMSSCSolution solution) {
+    public BMSSCSolution improve(BMSSCSolution solution) {
         int rounds = 0;
         while (!TimeControl.isTimeUp() && iteration(solution)){
             rounds++;

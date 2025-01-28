@@ -23,7 +23,7 @@ public class ShakeImprover extends Improver<BMSSCSolution, BMSSCInstance> {
     }
 
     @Override
-    protected BMSSCSolution _improve(BMSSCSolution solution) {
+    public BMSSCSolution improve(BMSSCSolution solution) {
         solution = improver.improve(solution);
         var copy = solution.cloneSolution();
         copy = shake.shake(copy, 1);

@@ -12,7 +12,7 @@ public class BMSSCInstance extends Instance {
     /**
      * Order instances by increasing number of points
      */
-    public static final Comparator<BMSSCInstance> INSTANCE_COMPARATOR = Comparator.comparing(BMSSCInstance::getNPoints);
+    public static final Comparator<BMSSCInstance> INSTANCE_COMPARATOR = Comparator.comparing(BMSSCInstance::getNPoints).reversed();
 
     /**
      * Number of points

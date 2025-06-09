@@ -50,8 +50,8 @@ public class FinalExperiment extends AbstractExperiment<BMSSCSolution, BMSSCInst
 //            }
 //        }
         var auto = builder.buildFromStringParams("ROOT=VNS ROOT_VNS.constructive=GreedyRandomGRASPConstructive ROOT_VNS.constructive_GreedyRandomGRASPConstructive.alpha=0.68 ROOT_VNS.constructive_GreedyRandomGRASPConstructive.candidateListManager=BMSSCListManager ROOT_VNS.improver=FirstImpLS ROOT_VNS.maxK=2 ROOT_VNS.shake=StrategicOscillation ROOT_VNS.shake_StrategicOscillation.increment=0.75");
-        algorithms.add(new MultiStartAlgorithm<>("ac5", Main.OBJ, auto, 1_000_000, 1_000_000, 1_000_000));
-        algorithms.add(sotaAlgorithm());
+        algorithms.add(auto);
+        //algorithms.add(sotaAlgorithm());
 
         return algorithms;
     }

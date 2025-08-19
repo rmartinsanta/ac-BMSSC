@@ -1,4 +1,7 @@
-# [Autoconfig: BMSSC](https://doi.org/XXXXXX)
+# [Autoconfig: BMSSC](https://doi.org/10.1016/j.ejor.2024.06.001)
+
+> [!WARNING]
+> An up-to-date and mantained version of this project can be found inside the [Mork Github repo](https://github.com/mork-optimization/mork/example-bmssc) as an example of how to use the framework. This copy has been archived for reference purposes only.
 
 ## Abstract 
 Metaheuristic algorithms have become one of the preferred approaches for
@@ -60,10 +63,10 @@ The next N lines, contains the point data for each dimension, separated by comma
 ## Cite
 Consider citing our original BMSSC paper if used in your own work, or the Autoconfig proposal
 
-### DOI BMSSC
+### Original BMSSC DOI
 https://doi.org/10.1016/j.ins.2021.11.048
 
-### Bibtex BMSSC
+### Original BMSSC publication
 ```bibtex
 @article{MARTINSANTAMARIA2022529,
 title = {Strategic oscillation for the balanced minimum sum-of-squares clustering problem},
@@ -81,7 +84,20 @@ abstract = {In the age of connectivity, every person is constantly producing lar
 ```
 
 ### DOI Autoconfig
-Pending review
+[10.1016/j.ejor.2024.06.001](https://doi.org/10.1016/j.ejor.2024.06.001)
 
 ### Bibtex Autoconfig
-Pending review
+```bibtex
+@article{Martin2024AutoconfigMork,
+title = {On the automatic generation of metaheuristic algorithms for combinatorial optimization problems},
+journal = {European Journal of Operational Research},
+volume = {318},
+number = {3},
+pages = {740-751},
+year = {2024},
+issn = {0377-2217},
+doi = {https://doi.org/10.1016/j.ejor.2024.06.001},
+url = {https://www.sciencedirect.com/science/article/pii/S0377221724004296},
+author = {Raúl Martín-Santamaría and Manuel López-Ibáñez and Thomas Stützle and J. Manuel Colmenar},
+}
+```
